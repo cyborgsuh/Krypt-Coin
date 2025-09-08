@@ -1,0 +1,51 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Ensure asset requests are not routed to SPA fallback
+[[redirects]]
+  from = "/assets/*"
+  to = "/assets/:splat"
+  status = 200
+
+# SPA fallback for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Security header (avoids MIME sniffing issues)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+
+# Explicit MIME types for modules and styles
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Content-Type = "application/javascript; charset=utf-8"
+
+[[headers]]
+  for = "/*.mjs"
+  [headers.values]
+    Content-Type = "application/javascript; charset=utf-8"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Content-Type = "text/css; charset=utf-8"
+
+# If you ever serve precompressed assets, set both type and encoding
+# (Only needed if your deploy contains .gz or .br files for the .js)
+[[headers]]
+  for = "/*.js.br"
+  [headers.values]
+    Content-Type = "application/javascript; charset=utf-8"
+    Content-Encoding = "br"
+
+[[headers]]
+  for = "/*.js.gz"
+  [headers.values]
+    Content-Type = "application/javascript; charset=utf-8"
+    Content-Encoding = "gzip"
