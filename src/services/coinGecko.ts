@@ -77,7 +77,7 @@ export const coinGeckoApi = {
               params: {
                 vs_currency: vsCurrency,
                 ids: 'vanry',
-                sparkline: false,
+                sparkline: true,
                 ...(apiKey && (isPro ? { x_cg_pro_api_key: apiKey } : { x_cg_demo_api_key: apiKey })),
               },
             });
@@ -103,7 +103,7 @@ export const coinGeckoApi = {
                 params: {
                   vs_currency: vsCurrency,
                   ids: resolvedId,
-                  sparkline: false,
+                  sparkline: true,
                   ...(apiKey && (isPro ? { x_cg_pro_api_key: apiKey } : { x_cg_demo_api_key: apiKey })),
                 },
               });
