@@ -81,7 +81,7 @@ export const CoinCard: React.FC<CoinCardProps> = ({ coin, onClick, isFirst = fal
             <h3 className="font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2">
               <span className="truncate">{coin.name}</span>
               {isFirst && (
-                <span className="inline-flex items-center text-xxs md:text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-0.5 rounded-full whitespace-nowrap">
+                <span className="hidden md:inline-flex items-center md:text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-0.5 rounded-full whitespace-nowrap">
                   FEATURED
                 </span>
               )}
